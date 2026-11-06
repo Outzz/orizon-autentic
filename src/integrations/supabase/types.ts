@@ -14,7 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      orcamento_requests: {
+        Row: {
+          created_at: string
+          email: string
+          empresa: string | null
+          id: string
+          mensagem: string | null
+          nome: string
+          tipo_projeto: string
+          whatsapp: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          empresa?: string | null
+          id?: string
+          mensagem?: string | null
+          nome: string
+          tipo_projeto: string
+          whatsapp: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          empresa?: string | null
+          id?: string
+          mensagem?: string | null
+          nome?: string
+          tipo_projeto?: string
+          whatsapp?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
