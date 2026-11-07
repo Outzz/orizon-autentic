@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Quote requests are inserted server-side via a server function using the admin client; the table has RLS on with no public policies, so visitors can never read leads.
