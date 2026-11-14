@@ -16,7 +16,7 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        cta: "rounded-full bg-primary text-primary-foreground font-semibold shadow-[var(--glow-sm)] transition-all hover:shadow-[var(--glow-cta)] hover:brightness-110",
+        cta: "rounded-full bg-primary text-primary-foreground font-semibold shadow-[var(--glow-sm)] transition-all hover:bg-primary/90 hover:shadow-[var(--glow-cta)]",
         ghostBlue:
           "rounded-full border border-border bg-transparent text-foreground font-semibold hover:border-primary hover:bg-primary/10",
       },

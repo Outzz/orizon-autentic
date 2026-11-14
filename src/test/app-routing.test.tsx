@@ -14,4 +14,13 @@ describe("App routing", () => {
 
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
+
+  it("places the team quotes page behind the authenticated layout", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+
+    const matches = router.matchRoutes("/equipe");
+
+    expect(matches.some((match) => match.routeId === "/_authenticated")).toBe(true);
+    expect(matches.at(-1)?.routeId).toBe("/_authenticated/equipe");
+  });
 });

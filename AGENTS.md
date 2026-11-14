@@ -30,4 +30,5 @@ use the editor.
 <!-- LOVABLE:END -->
 
 ## Project rules
-- Quote requests are inserted server-side via a server function using the admin client; the table has RLS on with no public policies, so visitors can never read leads.
+- Quote requests are inserted server-side via a server function using the admin client; visitors have no read policies, and only authenticated users with the separate `admin` role may read them through team server functions.
+- Team AI suggestions use the AI Gateway inside server-only code after an authenticated admin-role check; never expose quote data or model calls to public routes.

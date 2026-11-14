@@ -20,17 +20,17 @@ export const enviarOrcamento = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => orcamentoSchema.parse(data))
   .handler(async ({ data }) => {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const { error } = await supabaseAdmin.from("orcamento_requests").insert({
+    const { data: pedido, error } = await supabaseAdmin.from("orcamento_requests").insert({
       nome: data.nome,
       email: data.email,
       whatsapp: data.whatsapp,
       empresa: data.empresa || null,
       tipo_projeto: data.tipo_projeto,
       mensagem: data.mensagem || null,
-    });
+    }).select("id").single();
     if (error) {
       console.error("orcamento insert failed", error.message);
       throw new Error("Não foi possível enviar agora. Tente novamente.");
     }
-    return { ok: true };
+    return { ok: true, id: pedido.id };
   });

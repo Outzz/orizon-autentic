@@ -1,8 +1,8 @@
 export const CTA_LABEL = "Solicitar orçamento";
 
-// TODO: substituir pelo número real da Orizon (formato internacional, só dígitos)
-export const WHATSAPP_NUMBER = "5500000000000";
-export const whatsappUrl = (text = "Olá! Quero solicitar um orçamento com a Orizon.") =>
+export const WHATSAPP_NUMBER = "5513996419033";
+export const WHATSAPP_MESSAGE = "Olá, quero saber mais sobre os orçamentos da Orizon";
+export const whatsappUrl = (text = WHATSAPP_MESSAGE) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 
 export const PROJECT_TYPES = [

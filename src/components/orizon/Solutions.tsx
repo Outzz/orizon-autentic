@@ -50,7 +50,13 @@ export function Solutions() {
               </ul>
               <button
                 type="button"
-                onClick={() => goToForm(type)}
+                onClick={() => {
+                  window.__lovableEvents?.track?.("project.project_type_selected", {
+                    project_type: type,
+                    source: "solution_card",
+                  });
+                  goToForm(type);
+                }}
                 className="group mt-auto inline-flex items-center gap-1.5 pt-6 text-sm font-semibold text-highlight hover:text-primary-light"
               >
                 Quero essa solução <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

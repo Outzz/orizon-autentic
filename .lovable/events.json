@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "events": {
+    "project.project_type_selected": {
+      "event_schema_version": 1,
+      "description": "A visitor selected a project type from a solution card or the quote form.",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "project_type",
+          "source"
+        ],
+        "properties": {
+          "project_type": {
+            "type": "string",
+            "enum": [
+              "Site institucional",
+              "Landing page",
+              "CRM personalizado",
+              "Automações",
+              "Ainda não sei"
+            ]
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "solution_card",
+              "form_select"
+            ]
+          }
+        }
+      }
+    },
+    "project.quote_form_submitted": {
+      "event_schema_version": 1,
+      "description": "A quote request was successfully stored after the visitor submitted the form.",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "project_type"
+        ],
+        "properties": {
+          "project_type": {
+            "type": "string",
+            "enum": [
+              "Site institucional",
+              "Landing page",
+              "CRM personalizado",
+              "Automações",
+              "Ainda não sei"
+            ]
+          }
+        }
+      }
+    },
+    "project.whatsapp_clicked": {
+      "event_schema_version": 1,
+      "description": "A visitor opened WhatsApp with the prefilled Orizon quote message.",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "location"
+        ],
+        "properties": {
+          "location": {
+            "type": "string",
+            "enum": [
+              "quote_form"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

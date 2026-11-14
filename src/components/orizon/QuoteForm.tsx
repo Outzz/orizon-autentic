@@ -32,6 +32,7 @@ export function QuoteForm() {
   const onSubmit = async (values: OrcamentoInput) => {
     try {
       await enviarOrcamento({ data: values });
+      window.__lovableEvents?.track?.("project.quote_form_submitted", { project_type: values.tipo_projeto });
       setSent(true);
       form.reset();
     } catch {
@@ -41,7 +42,7 @@ export function QuoteForm() {
 
   return (
     <section id="orcamento" className="relative scroll-mt-16 overflow-hidden px-4 py-20 sm:px-6 sm:py-28">
-      <img src={heroGlow} alt="" aria-hidden="true" loading="lazy" width={1920} height={832} className="absolute inset-0 h-full w-full object-cover object-right opacity-40" />
+      <img src={heroGlow} alt="" aria-hidden="true" loading="lazy" width={1920} height={832} className="absolute inset-0 h-full w-full object-cover object-right opacity-20 dark:opacity-40" />
       <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60" />
       <div className="relative mx-auto grid max-w-6xl items-start gap-12 lg:grid-cols-[1fr_1.1fr]">
         <Reveal>
@@ -61,7 +62,12 @@ export function QuoteForm() {
           <div className="mt-8">
             <p className="text-sm text-muted-foreground">Prefere conversar agora?</p>
             <Button variant="ghostBlue" size="xl" asChild className="mt-3">
-              <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
+              <a
+                href={whatsappUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => window.__lovableEvents?.track?.("project.whatsapp_clicked", { location: "quote_form" })}
+              >
                 <MessageCircle /> Falar no WhatsApp
               </a>
             </Button>
@@ -95,7 +101,16 @@ export function QuoteForm() {
                   <FormField control={form.control} name="tipo_projeto" render={({ field }) => (
                     <FormItem>
                       <FormLabel>Tipo de projeto *</FormLabel>
-                      <Select onValueChange={field.onChange} value={field.value}>
+                      <Select
+                        onValueChange={(value) => {
+                          field.onChange(value);
+                          window.__lovableEvents?.track?.("project.project_type_selected", {
+                            project_type: value,
+                            source: "form_select",
+                          });
+                        }}
+                        value={field.value}
+                      >
                         <FormControl><SelectTrigger className={fieldCls}><SelectValue placeholder="Selecione" /></SelectTrigger></FormControl>
                         <SelectContent>{PROJECT_TYPES.map((t) => <SelectItem key={t} value={t}>{t}</SelectItem>)}</SelectContent>
                       </Select>
