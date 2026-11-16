@@ -155,6 +155,11 @@
   }
 }
 
+@utility card-media-fade {
+  background: linear-gradient(to top, color-mix(in srgb, var(--card) 82%, transparent), transparent 55%);
+  pointer-events: none;
+}
+
 @utility section-divider {
   height: 1px;
   background: var(--border);
