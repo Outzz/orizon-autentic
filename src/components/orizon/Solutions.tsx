@@ -54,7 +54,7 @@ export function Solutions() {
                 />
                 <div className="card-media-fade absolute inset-0" />
               </div>
-              <div className="flex flex-1 flex-col px-7 pb-7">
+              <div className="relative z-10 flex flex-1 flex-col px-7 pb-7">
                 <span className="-mt-6 grid h-12 w-12 place-items-center rounded-xl bg-[image:var(--gradient-brand)] shadow-[var(--glow-md)]">
                   <Icon className="h-6 w-6 text-primary-foreground" />
                 </span>
