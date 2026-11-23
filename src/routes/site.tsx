@@ -13,7 +13,7 @@ const title = "Orizon — Sites, CRMs e automações sob medida";
 const description =
   "Sites, landing pages, CRMs e automações que fazem seu negócio vender mais. Briefing inicial gratuito e proposta sem compromisso.";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/site")({
   head: () => ({
     meta: [
       { title },

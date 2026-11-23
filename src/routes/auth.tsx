@@ -34,7 +34,7 @@ export const Route = createFileRoute("/auth")({
 });
 
 function safeRedirect(value?: string) {
-  return value?.startsWith("/") && !value.startsWith("//") ? value : "/equipe";
+  return value?.startsWith("/") && !value.startsWith("//") ? value : "/";
 }
 
 function AuthPage() {
@@ -120,11 +120,11 @@ function AuthPage() {
   return (
     <main className="min-h-screen bg-background px-4 py-6 sm:px-6">
       <div className="mx-auto flex max-w-6xl items-center justify-between">
-        <Link to="/" aria-label="Voltar ao site da Orizon"><Logo /></Link>
+        <Link to="/site" aria-label="Voltar ao site da Orizon"><Logo /></Link>
         <ThemeToggle />
       </div>
       <section className="mx-auto mt-16 max-w-md sm:mt-24">
-        <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+        <Link to="/site" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
           <ArrowLeft className="h-4 w-4" /> Voltar ao site
         </Link>
         <div className="glass-card mt-6 p-6 hover:shadow-none sm:p-8">

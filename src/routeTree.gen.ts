@@ -9,17 +9,26 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as SiteRouteImport } from './routes/site'
+import { Route as AuthenticatedWorkspaceRouteRouteImport } from './routes/_authenticated/_workspace/route'
 import { Route as AuthenticatedEquipeRouteImport } from './routes/_authenticated/equipe'
+import { Route as AuthenticatedWorkspaceIndexRouteImport } from './routes/_authenticated/_workspace/index'
+import { Route as AuthenticatedWorkspaceArquivosRouteImport } from './routes/_authenticated/_workspace/arquivos'
+import { Route as AuthenticatedWorkspaceAssistenteRouteImport } from './routes/_authenticated/_workspace/assistente'
+import { Route as AuthenticatedWorkspaceClientesRouteImport } from './routes/_authenticated/_workspace/clientes'
+import { Route as AuthenticatedWorkspaceConfiguracoesRouteImport } from './routes/_authenticated/_workspace/configuracoes'
+import { Route as AuthenticatedWorkspaceContratosRouteImport } from './routes/_authenticated/_workspace/contratos'
+import { Route as AuthenticatedWorkspaceCrmRouteImport } from './routes/_authenticated/_workspace/crm'
+import { Route as AuthenticatedWorkspaceHistoricoRouteImport } from './routes/_authenticated/_workspace/historico'
+import { Route as AuthenticatedWorkspacePropostasRouteImport } from './routes/_authenticated/_workspace/propostas'
+import { Route as AuthenticatedWorkspaceProspeccaoRouteImport } from './routes/_authenticated/_workspace/prospeccao'
+import { Route as AuthenticatedWorkspaceTemplatesRouteImport } from './routes/_authenticated/_workspace/templates'
+import { Route as AuthenticatedWorkspaceProjetosIndexRouteImport } from './routes/_authenticated/_workspace/projetos.index'
+import { Route as AuthenticatedWorkspaceProjetosNovoRouteImport } from './routes/_authenticated/_workspace/projetos.novo'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
   id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
@@ -34,62 +43,231 @@ const ResetPasswordRoute = ResetPasswordRouteImport.update({
   path: '/reset-password',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SiteRoute = SiteRouteImport.update({
+  id: '/site',
+  path: '/site',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedWorkspaceRouteRoute =
+  AuthenticatedWorkspaceRouteRouteImport.update({
+    id: '/_workspace',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedEquipeRoute = AuthenticatedEquipeRouteImport.update({
   id: '/equipe',
   path: '/equipe',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedWorkspaceIndexRoute =
+  AuthenticatedWorkspaceIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => AuthenticatedWorkspaceRouteRoute,
+  } as any)
+const AuthenticatedWorkspaceArquivosRoute =
+  AuthenticatedWorkspaceArquivosRouteImport.update({
+    id: '/arquivos',
+    path: '/arquivos',
+    getParentRoute: () => AuthenticatedWorkspaceRouteRoute,
+  } as any)
+const AuthenticatedWorkspaceAssistenteRoute =
+  AuthenticatedWorkspaceAssistenteRouteImport.update({
+    id: '/assistente',
+    path: '/assistente',
+    getParentRoute: () => AuthenticatedWorkspaceRouteRoute,
+  } as any)
+const AuthenticatedWorkspaceClientesRoute =
+  AuthenticatedWorkspaceClientesRouteImport.update({
+    id: '/clientes',
+    path: '/clientes',
+    getParentRoute: () => AuthenticatedWorkspaceRouteRoute,
+  } as any)
+const AuthenticatedWorkspaceConfiguracoesRoute =
+  AuthenticatedWorkspaceConfiguracoesRouteImport.update({
+    id: '/configuracoes',
+    path: '/configuracoes',
+    getParentRoute: () => AuthenticatedWorkspaceRouteRoute,
+  } as any)
+const AuthenticatedWorkspaceContratosRoute =
+  AuthenticatedWorkspaceContratosRouteImport.update({
+    id: '/contratos',
+    path: '/contratos',
+    getParentRoute: () => AuthenticatedWorkspaceRouteRoute,
+  } as any)
+const AuthenticatedWorkspaceCrmRoute =
+  AuthenticatedWorkspaceCrmRouteImport.update({
+    id: '/crm',
+    path: '/crm',
+    getParentRoute: () => AuthenticatedWorkspaceRouteRoute,
+  } as any)
+const AuthenticatedWorkspaceHistoricoRoute =
+  AuthenticatedWorkspaceHistoricoRouteImport.update({
+    id: '/historico',
+    path: '/historico',
+    getParentRoute: () => AuthenticatedWorkspaceRouteRoute,
+  } as any)
+const AuthenticatedWorkspacePropostasRoute =
+  AuthenticatedWorkspacePropostasRouteImport.update({
+    id: '/propostas',
+    path: '/propostas',
+    getParentRoute: () => AuthenticatedWorkspaceRouteRoute,
+  } as any)
+const AuthenticatedWorkspaceProspeccaoRoute =
+  AuthenticatedWorkspaceProspeccaoRouteImport.update({
+    id: '/prospeccao',
+    path: '/prospeccao',
+    getParentRoute: () => AuthenticatedWorkspaceRouteRoute,
+  } as any)
+const AuthenticatedWorkspaceTemplatesRoute =
+  AuthenticatedWorkspaceTemplatesRouteImport.update({
+    id: '/templates',
+    path: '/templates',
+    getParentRoute: () => AuthenticatedWorkspaceRouteRoute,
+  } as any)
+const AuthenticatedWorkspaceProjetosIndexRoute =
+  AuthenticatedWorkspaceProjetosIndexRouteImport.update({
+    id: '/projetos/',
+    path: '/projetos/',
+    getParentRoute: () => AuthenticatedWorkspaceRouteRoute,
+  } as any)
+const AuthenticatedWorkspaceProjetosNovoRoute =
+  AuthenticatedWorkspaceProjetosNovoRouteImport.update({
+    id: '/projetos/novo',
+    path: '/projetos/novo',
+    getParentRoute: () => AuthenticatedWorkspaceRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/': typeof AuthenticatedWorkspaceIndexRoute
   '/auth': typeof AuthRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/site': typeof SiteRoute
   '/equipe': typeof AuthenticatedEquipeRoute
+  '/arquivos': typeof AuthenticatedWorkspaceArquivosRoute
+  '/assistente': typeof AuthenticatedWorkspaceAssistenteRoute
+  '/clientes': typeof AuthenticatedWorkspaceClientesRoute
+  '/configuracoes': typeof AuthenticatedWorkspaceConfiguracoesRoute
+  '/contratos': typeof AuthenticatedWorkspaceContratosRoute
+  '/crm': typeof AuthenticatedWorkspaceCrmRoute
+  '/historico': typeof AuthenticatedWorkspaceHistoricoRoute
+  '/propostas': typeof AuthenticatedWorkspacePropostasRoute
+  '/prospeccao': typeof AuthenticatedWorkspaceProspeccaoRoute
+  '/templates': typeof AuthenticatedWorkspaceTemplatesRoute
+  '/projetos/novo': typeof AuthenticatedWorkspaceProjetosNovoRoute
+  '/projetos/': typeof AuthenticatedWorkspaceProjetosIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  '/': typeof AuthenticatedWorkspaceIndexRoute
   '/auth': typeof AuthRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/site': typeof SiteRoute
   '/equipe': typeof AuthenticatedEquipeRoute
+  '/arquivos': typeof AuthenticatedWorkspaceArquivosRoute
+  '/assistente': typeof AuthenticatedWorkspaceAssistenteRoute
+  '/clientes': typeof AuthenticatedWorkspaceClientesRoute
+  '/configuracoes': typeof AuthenticatedWorkspaceConfiguracoesRoute
+  '/contratos': typeof AuthenticatedWorkspaceContratosRoute
+  '/crm': typeof AuthenticatedWorkspaceCrmRoute
+  '/historico': typeof AuthenticatedWorkspaceHistoricoRoute
+  '/propostas': typeof AuthenticatedWorkspacePropostasRoute
+  '/prospeccao': typeof AuthenticatedWorkspaceProspeccaoRoute
+  '/templates': typeof AuthenticatedWorkspaceTemplatesRoute
+  '/projetos/novo': typeof AuthenticatedWorkspaceProjetosNovoRoute
+  '/projetos': typeof AuthenticatedWorkspaceProjetosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/site': typeof SiteRoute
+  '/_authenticated/_workspace': typeof AuthenticatedWorkspaceRouteRouteWithChildren
   '/_authenticated/equipe': typeof AuthenticatedEquipeRoute
+  '/_authenticated/_workspace/arquivos': typeof AuthenticatedWorkspaceArquivosRoute
+  '/_authenticated/_workspace/assistente': typeof AuthenticatedWorkspaceAssistenteRoute
+  '/_authenticated/_workspace/clientes': typeof AuthenticatedWorkspaceClientesRoute
+  '/_authenticated/_workspace/configuracoes': typeof AuthenticatedWorkspaceConfiguracoesRoute
+  '/_authenticated/_workspace/contratos': typeof AuthenticatedWorkspaceContratosRoute
+  '/_authenticated/_workspace/crm': typeof AuthenticatedWorkspaceCrmRoute
+  '/_authenticated/_workspace/historico': typeof AuthenticatedWorkspaceHistoricoRoute
+  '/_authenticated/_workspace/propostas': typeof AuthenticatedWorkspacePropostasRoute
+  '/_authenticated/_workspace/prospeccao': typeof AuthenticatedWorkspaceProspeccaoRoute
+  '/_authenticated/_workspace/templates': typeof AuthenticatedWorkspaceTemplatesRoute
+  '/_authenticated/_workspace/': typeof AuthenticatedWorkspaceIndexRoute
+  '/_authenticated/_workspace/projetos/novo': typeof AuthenticatedWorkspaceProjetosNovoRoute
+  '/_authenticated/_workspace/projetos/': typeof AuthenticatedWorkspaceProjetosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth' | '/reset-password' | '/equipe'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/reset-password'
+    | '/site'
+    | '/equipe'
+    | '/arquivos'
+    | '/assistente'
+    | '/clientes'
+    | '/configuracoes'
+    | '/contratos'
+    | '/crm'
+    | '/historico'
+    | '/propostas'
+    | '/prospeccao'
+    | '/templates'
+    | '/projetos/novo'
+    | '/projetos/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/reset-password' | '/equipe'
+  to:
+    | '/'
+    | '/auth'
+    | '/reset-password'
+    | '/site'
+    | '/equipe'
+    | '/arquivos'
+    | '/assistente'
+    | '/clientes'
+    | '/configuracoes'
+    | '/contratos'
+    | '/crm'
+    | '/historico'
+    | '/propostas'
+    | '/prospeccao'
+    | '/templates'
+    | '/projetos/novo'
+    | '/projetos'
   id:
     | '__root__'
-    | '/'
     | '/_authenticated'
     | '/auth'
     | '/reset-password'
+    | '/site'
+    | '/_authenticated/_workspace'
     | '/_authenticated/equipe'
+    | '/_authenticated/_workspace/arquivos'
+    | '/_authenticated/_workspace/assistente'
+    | '/_authenticated/_workspace/clientes'
+    | '/_authenticated/_workspace/configuracoes'
+    | '/_authenticated/_workspace/contratos'
+    | '/_authenticated/_workspace/crm'
+    | '/_authenticated/_workspace/historico'
+    | '/_authenticated/_workspace/propostas'
+    | '/_authenticated/_workspace/prospeccao'
+    | '/_authenticated/_workspace/templates'
+    | '/_authenticated/_workspace/'
+    | '/_authenticated/_workspace/projetos/novo'
+    | '/_authenticated/_workspace/projetos/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
+  SiteRoute: typeof SiteRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/_authenticated': {
       id: '/_authenticated'
       path: ''
@@ -111,6 +289,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/site': {
+      id: '/site'
+      path: '/site'
+      fullPath: '/site'
+      preLoaderRoute: typeof SiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/_workspace': {
+      id: '/_authenticated/_workspace'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedWorkspaceRouteRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/equipe': {
       id: '/_authenticated/equipe'
       path: '/equipe'
@@ -118,14 +310,151 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedEquipeRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/_workspace/': {
+      id: '/_authenticated/_workspace/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedWorkspaceIndexRouteImport
+      parentRoute: typeof AuthenticatedWorkspaceRouteRoute
+    }
+    '/_authenticated/_workspace/arquivos': {
+      id: '/_authenticated/_workspace/arquivos'
+      path: '/arquivos'
+      fullPath: '/arquivos'
+      preLoaderRoute: typeof AuthenticatedWorkspaceArquivosRouteImport
+      parentRoute: typeof AuthenticatedWorkspaceRouteRoute
+    }
+    '/_authenticated/_workspace/assistente': {
+      id: '/_authenticated/_workspace/assistente'
+      path: '/assistente'
+      fullPath: '/assistente'
+      preLoaderRoute: typeof AuthenticatedWorkspaceAssistenteRouteImport
+      parentRoute: typeof AuthenticatedWorkspaceRouteRoute
+    }
+    '/_authenticated/_workspace/clientes': {
+      id: '/_authenticated/_workspace/clientes'
+      path: '/clientes'
+      fullPath: '/clientes'
+      preLoaderRoute: typeof AuthenticatedWorkspaceClientesRouteImport
+      parentRoute: typeof AuthenticatedWorkspaceRouteRoute
+    }
+    '/_authenticated/_workspace/configuracoes': {
+      id: '/_authenticated/_workspace/configuracoes'
+      path: '/configuracoes'
+      fullPath: '/configuracoes'
+      preLoaderRoute: typeof AuthenticatedWorkspaceConfiguracoesRouteImport
+      parentRoute: typeof AuthenticatedWorkspaceRouteRoute
+    }
+    '/_authenticated/_workspace/contratos': {
+      id: '/_authenticated/_workspace/contratos'
+      path: '/contratos'
+      fullPath: '/contratos'
+      preLoaderRoute: typeof AuthenticatedWorkspaceContratosRouteImport
+      parentRoute: typeof AuthenticatedWorkspaceRouteRoute
+    }
+    '/_authenticated/_workspace/crm': {
+      id: '/_authenticated/_workspace/crm'
+      path: '/crm'
+      fullPath: '/crm'
+      preLoaderRoute: typeof AuthenticatedWorkspaceCrmRouteImport
+      parentRoute: typeof AuthenticatedWorkspaceRouteRoute
+    }
+    '/_authenticated/_workspace/historico': {
+      id: '/_authenticated/_workspace/historico'
+      path: '/historico'
+      fullPath: '/historico'
+      preLoaderRoute: typeof AuthenticatedWorkspaceHistoricoRouteImport
+      parentRoute: typeof AuthenticatedWorkspaceRouteRoute
+    }
+    '/_authenticated/_workspace/propostas': {
+      id: '/_authenticated/_workspace/propostas'
+      path: '/propostas'
+      fullPath: '/propostas'
+      preLoaderRoute: typeof AuthenticatedWorkspacePropostasRouteImport
+      parentRoute: typeof AuthenticatedWorkspaceRouteRoute
+    }
+    '/_authenticated/_workspace/prospeccao': {
+      id: '/_authenticated/_workspace/prospeccao'
+      path: '/prospeccao'
+      fullPath: '/prospeccao'
+      preLoaderRoute: typeof AuthenticatedWorkspaceProspeccaoRouteImport
+      parentRoute: typeof AuthenticatedWorkspaceRouteRoute
+    }
+    '/_authenticated/_workspace/templates': {
+      id: '/_authenticated/_workspace/templates'
+      path: '/templates'
+      fullPath: '/templates'
+      preLoaderRoute: typeof AuthenticatedWorkspaceTemplatesRouteImport
+      parentRoute: typeof AuthenticatedWorkspaceRouteRoute
+    }
+    '/_authenticated/_workspace/projetos/': {
+      id: '/_authenticated/_workspace/projetos/'
+      path: '/projetos'
+      fullPath: '/projetos/'
+      preLoaderRoute: typeof AuthenticatedWorkspaceProjetosIndexRouteImport
+      parentRoute: typeof AuthenticatedWorkspaceRouteRoute
+    }
+    '/_authenticated/_workspace/projetos/novo': {
+      id: '/_authenticated/_workspace/projetos/novo'
+      path: '/projetos/novo'
+      fullPath: '/projetos/novo'
+      preLoaderRoute: typeof AuthenticatedWorkspaceProjetosNovoRouteImport
+      parentRoute: typeof AuthenticatedWorkspaceRouteRoute
+    }
   }
 }
 
+interface AuthenticatedWorkspaceRouteRouteChildren {
+  AuthenticatedWorkspaceArquivosRoute: typeof AuthenticatedWorkspaceArquivosRoute
+  AuthenticatedWorkspaceAssistenteRoute: typeof AuthenticatedWorkspaceAssistenteRoute
+  AuthenticatedWorkspaceClientesRoute: typeof AuthenticatedWorkspaceClientesRoute
+  AuthenticatedWorkspaceConfiguracoesRoute: typeof AuthenticatedWorkspaceConfiguracoesRoute
+  AuthenticatedWorkspaceContratosRoute: typeof AuthenticatedWorkspaceContratosRoute
+  AuthenticatedWorkspaceCrmRoute: typeof AuthenticatedWorkspaceCrmRoute
+  AuthenticatedWorkspaceHistoricoRoute: typeof AuthenticatedWorkspaceHistoricoRoute
+  AuthenticatedWorkspacePropostasRoute: typeof AuthenticatedWorkspacePropostasRoute
+  AuthenticatedWorkspaceProspeccaoRoute: typeof AuthenticatedWorkspaceProspeccaoRoute
+  AuthenticatedWorkspaceTemplatesRoute: typeof AuthenticatedWorkspaceTemplatesRoute
+  AuthenticatedWorkspaceIndexRoute: typeof AuthenticatedWorkspaceIndexRoute
+  AuthenticatedWorkspaceProjetosNovoRoute: typeof AuthenticatedWorkspaceProjetosNovoRoute
+  AuthenticatedWorkspaceProjetosIndexRoute: typeof AuthenticatedWorkspaceProjetosIndexRoute
+}
+
+const AuthenticatedWorkspaceRouteRouteChildren: AuthenticatedWorkspaceRouteRouteChildren =
+  {
+    AuthenticatedWorkspaceArquivosRoute: AuthenticatedWorkspaceArquivosRoute,
+    AuthenticatedWorkspaceAssistenteRoute:
+      AuthenticatedWorkspaceAssistenteRoute,
+    AuthenticatedWorkspaceClientesRoute: AuthenticatedWorkspaceClientesRoute,
+    AuthenticatedWorkspaceConfiguracoesRoute:
+      AuthenticatedWorkspaceConfiguracoesRoute,
+    AuthenticatedWorkspaceContratosRoute: AuthenticatedWorkspaceContratosRoute,
+    AuthenticatedWorkspaceCrmRoute: AuthenticatedWorkspaceCrmRoute,
+    AuthenticatedWorkspaceHistoricoRoute: AuthenticatedWorkspaceHistoricoRoute,
+    AuthenticatedWorkspacePropostasRoute: AuthenticatedWorkspacePropostasRoute,
+    AuthenticatedWorkspaceProspeccaoRoute:
+      AuthenticatedWorkspaceProspeccaoRoute,
+    AuthenticatedWorkspaceTemplatesRoute: AuthenticatedWorkspaceTemplatesRoute,
+    AuthenticatedWorkspaceIndexRoute: AuthenticatedWorkspaceIndexRoute,
+    AuthenticatedWorkspaceProjetosNovoRoute:
+      AuthenticatedWorkspaceProjetosNovoRoute,
+    AuthenticatedWorkspaceProjetosIndexRoute:
+      AuthenticatedWorkspaceProjetosIndexRoute,
+  }
+
+const AuthenticatedWorkspaceRouteRouteWithChildren =
+  AuthenticatedWorkspaceRouteRoute._addFileChildren(
+    AuthenticatedWorkspaceRouteRouteChildren,
+  )
+
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedWorkspaceRouteRoute: typeof AuthenticatedWorkspaceRouteRouteWithChildren
   AuthenticatedEquipeRoute: typeof AuthenticatedEquipeRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedWorkspaceRouteRoute:
+    AuthenticatedWorkspaceRouteRouteWithChildren,
   AuthenticatedEquipeRoute: AuthenticatedEquipeRoute,
 }
 
@@ -133,10 +462,10 @@ const AuthenticatedRouteRouteWithChildren =
   AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AuthRoute: AuthRoute,
   ResetPasswordRoute: ResetPasswordRoute,
+  SiteRoute: SiteRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

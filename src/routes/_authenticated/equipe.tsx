@@ -53,7 +53,7 @@ function TeamPage() {
     <div className="min-h-screen bg-background">
       <header className="border-b border-border bg-surface">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
-          <Link to="/" aria-label="Ir para o site da Orizon"><Logo /></Link>
+          <Link to="/site" aria-label="Ir para o site da Orizon"><Logo /></Link>
           <div className="flex items-center gap-1"><ThemeToggle /><Button variant="ghost" size="sm" onClick={handleSignOut}><LogOut />Sair</Button></div>
         </div>
       </header>

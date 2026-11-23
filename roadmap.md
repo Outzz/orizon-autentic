@@ -2,8 +2,8 @@
 
 ## Transformação da plataforma privada
 
-- [ ] Fase 1: auditar o projeto e aprovar o planejamento da transformação.
-- [ ] Fase 2: criar a identidade do ambiente de trabalho, sidebar recolhível e rotas independentes; manter o site atual em `/site` enquanto essa escolha estiver pendente.
+- [x] Fase 1: auditar o projeto e aprovar o planejamento da transformação.
+- [ ] Fase 2: criar a identidade do ambiente de trabalho, sidebar recolhível e rotas independentes; manter o site atual em `/site`.
 - [ ] Fase 3: criar dashboard privado com indicadores, projetos e atividades calculados dos registros locais.
 - [ ] Fase 4: implementar criador e gerenciamento de projetos.
 - [ ] Fase 5: implementar ambiente de desenvolvimento e editor, sem simular IA.
