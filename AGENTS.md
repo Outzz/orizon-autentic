@@ -30,6 +30,4 @@ use the editor.
 <!-- LOVABLE:END -->
 
 ## Project rules
-- Quote requests are inserted server-side via a server function using the admin client; visitors have no read policies, and only authenticated users with the separate `admin` role may read them through team server functions.
-- Team AI suggestions use the AI Gateway inside server-only code after an authenticated admin-role check; never expose quote data or model calls to public routes.
 - The private workspace is local-first: keep preferences in LocalStorage and projects/files in IndexedDB behind a replaceable service layer; do not add backend dependencies to these new modules or simulate unavailable AI.

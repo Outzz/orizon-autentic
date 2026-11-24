@@ -12,7 +12,6 @@ import { useEffect, type ReactNode } from "react";
 import { ThemeProvider } from "next-themes";
 
 import { Toaster } from "@/components/ui/sonner";
-import { supabase } from "@/integrations/supabase/client";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
@@ -82,7 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Orizon" },
-      { name: "description", content: "Sites, landing pages, CRMs e automações sob medida." },
+      { name: "description", content: "Ambiente local da Orizon para organizar projetos, clientes e arquivos." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
           ],
@@ -119,16 +118,6 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-  const router = useRouter();
-
-  useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
-      if (event !== "SIGNED_IN" && event !== "SIGNED_OUT" && event !== "USER_UPDATED") return;
-      router.invalidate();
-      if (event !== "SIGNED_OUT") queryClient.invalidateQueries();
-    });
-    return () => subscription.unsubscribe();
-  }, [queryClient, router]);
 
   return (
     <QueryClientProvider client={queryClient}>

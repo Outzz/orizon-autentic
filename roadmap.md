@@ -2,9 +2,10 @@
 
 ## Transformação da plataforma privada
 
-- [x] Liberar o novo painel sem login e remover seus controles de sair, mantendo os antigos pedidos de orçamento protegidos.
+- [x] Remover orçamentos, área da equipe e login; manter o painel novo com acesso direto.
+- [x] Manter o site institucional em `/site` com contato direto pelo WhatsApp, sem formulário.
 - [x] Fase 1: auditar o projeto e aprovar o planejamento da transformação.
-- [x] Fase 2: criar a identidade do ambiente de trabalho, sidebar recolhível e rotas independentes; manter o site atual em `/site`.
+- [x] Fase 2: criar a identidade do ambiente de trabalho, sidebar recolhível e rotas independentes.
 - [x] Fase 3: criar dashboard privado com indicadores, projetos e atividades calculados dos registros locais.
 - [x] Validar visualmente o painel sem login e a transferência da ideia para "Criar projeto".
 - [ ] Fase 4: implementar criador e gerenciamento de projetos.
@@ -16,13 +17,10 @@
 - [ ] Fase 10: validar todas as rotas em 375 px, 768 px e 1440 px e preparar publicação.
 - [x] Registrar as alterações aprovadas no Git após cada entrega.
 
-## Funcionalidades anteriores a preservar
+## Escopo atual
 
-- [x] Medir envios concluídos do formulário, cliques no WhatsApp e seleções de tipo de projeto.
-- [ ] Enviar aviso a outzz.dev@gmail.com a cada novo orçamento, com dados principais e link para o registro. **Bloqueado:** configurar e verificar um domínio de e-mail próprio.
-- [x] Criar área da equipe protegida por login, com registros e sugestões de resposta personalizadas pela AI Gateway.
-- [ ] Liberar o primeiro acesso de administrador e testar a área interna autenticada. **Bloqueado:** ainda não existe uma conta de usuário; criar a conta em "Área da equipe".
-- [x] Ligar o botão do WhatsApp ao número +55 13 99641-9033 com a mensagem "Olá, quero saber mais sobre os orçamentos da Orizon".
+- [x] Manter todos os módulos do painel sem autenticação e sem dependências de backend.
+- [x] Preservar os registros antigos armazenados, sem exibi-los ou aceitar novos pedidos pelo app.
+- [x] Medir cliques no WhatsApp e seleções de tipo de projeto no site institucional.
+- [x] Manter o WhatsApp +55 13 99641-9033 como contato direto.
 - [x] Adicionar temas claro e escuro e deixar o visual mais minimalista.
-- [x] Verificar formulário, eventos, WhatsApp, temas, bloqueio de rota, IA com dados fictícios, testes e compilação.
-- [x] Ajustar o botão "Solicitar orçamento" do topo em telas de 375 px; a página agora respeita a largura da tela.

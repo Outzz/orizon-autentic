@@ -6,12 +6,12 @@ import { Problem } from "@/components/orizon/Problem";
 import { Solutions } from "@/components/orizon/Solutions";
 import { Process } from "@/components/orizon/Process";
 import { Faq } from "@/components/orizon/Faq";
-import { QuoteForm } from "@/components/orizon/QuoteForm";
+import { ContactSection } from "@/components/orizon/ContactSection";
 import { Footer } from "@/components/orizon/Footer";
 
 const title = "Orizon — Sites, CRMs e automações sob medida";
 const description =
-  "Sites, landing pages, CRMs e automações que fazem seu negócio vender mais. Briefing inicial gratuito e proposta sem compromisso.";
+  "Conheça as soluções da Orizon em sites, landing pages, CRMs e automações e fale diretamente com a equipe pelo WhatsApp.";
 
 export const Route = createFileRoute("/site")({
   head: () => ({
@@ -40,7 +40,7 @@ function Index() {
         <Process />
         <Faq />
         <div className="section-divider" />
-        <QuoteForm />
+        <ContactSection />
       </main>
       <Footer />
     </>

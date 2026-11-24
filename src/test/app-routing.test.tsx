@@ -26,11 +26,11 @@ describe("App routing", () => {
     expect(matches.some((match) => match.routeId === "/_authenticated")).toBe(false);
   });
 
-  it("keeps the legacy team quotes page behind the authenticated layout", () => {
-    const matches = matchesFor("/equipe");
+  it.each(["/equipe", "/auth", "/reset-password"])("removes the legacy quote and login page %s", (path) => {
+    const matches = matchesFor(path);
 
-    expect(matches.some((match) => match.routeId === "/_authenticated")).toBe(true);
-    expect(matches.at(-1)?.routeId).toBe("/_authenticated/equipe");
+    expect(matches.at(-1)?.routeId).toBe(rootRouteId);
+    expect(matches.some((match) => match.routeId === "/_authenticated")).toBe(false);
   });
 
   it.each([

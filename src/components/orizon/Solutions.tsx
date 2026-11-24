@@ -5,7 +5,7 @@ import landingImg from "@/assets/project-landing-page.jpg";
 import siteImg from "@/assets/project-portal-imobiliario.jpg";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
-import { goToForm } from "./cta";
+import { solutionWhatsappUrl } from "./cta";
 
 const solutions = [
   {
@@ -68,19 +68,21 @@ export function Solutions() {
                     </li>
                   ))}
                 </ul>
-                <button
-                  type="button"
+                <a
+                  href={solutionWhatsappUrl(type)}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => {
                     window.__lovableEvents?.track?.("project.project_type_selected", {
                       project_type: type,
                       source: "solution_card",
                     });
-                    goToForm(type);
+                    window.__lovableEvents?.track?.("project.whatsapp_clicked", { location: "solution_card" });
                   }}
                   className="group/btn mt-auto inline-flex items-center gap-1.5 pt-6 text-sm font-semibold text-highlight hover:text-primary-light"
                 >
                   Quero essa solução <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                </button>
+                </a>
               </div>
             </article>
           </Reveal>
