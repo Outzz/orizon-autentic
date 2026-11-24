@@ -54,7 +54,7 @@ function TeamPage() {
       <header className="border-b border-border bg-surface">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
           <Link to="/site" aria-label="Ir para o site da Orizon"><Logo /></Link>
-          <div className="flex items-center gap-1"><ThemeToggle /><Button variant="ghost" size="sm" onClick={handleSignOut}><LogOut />Sair</Button></div>
+          <div className="flex items-center gap-1"><Link to="/" className="hidden rounded-md px-3 py-2 text-sm text-muted-foreground hover:text-foreground sm:block">Dashboard</Link><ThemeToggle /><Button variant="ghost" size="sm" onClick={handleSignOut}><LogOut />Sair</Button></div>
         </div>
       </header>
       <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6">

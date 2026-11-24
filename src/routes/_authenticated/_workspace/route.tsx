@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { createFileRoute, Outlet } from "@tanstack/react-router";
 import { WorkspaceHeader } from "@/components/workspace/WorkspaceHeader";
 import { WorkspaceSidebar } from "@/components/workspace/WorkspaceSidebar";
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { loadWorkspacePreferences, saveWorkspacePreferences } from "@/lib/workspace/preferences";
 
 export const Route = createFileRoute("/_authenticated/_workspace")({
@@ -24,10 +24,10 @@ function WorkspaceLayout() {
   return (
     <SidebarProvider open={sidebarOpen} onOpenChange={handleSidebarChange} className="w-full">
       <WorkspaceSidebar />
-      <SidebarInset className="min-w-0">
+      <div className="relative flex min-w-0 w-full flex-1 flex-col bg-background">
         <WorkspaceHeader />
         <Outlet />
-      </SidebarInset>
+      </div>
     </SidebarProvider>
   );
 }
