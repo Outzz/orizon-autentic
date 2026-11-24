@@ -3,7 +3,7 @@ import { FolderKanban } from "lucide-react";
 import { ModulePage } from "@/components/workspace/ModulePage";
 import { privateWorkspaceHead } from "@/lib/workspace/metadata";
 
-export const Route = createFileRoute("/_authenticated/_workspace/projetos/")({
+export const Route = createFileRoute("/_workspace/projetos/")({
   head: () => privateWorkspaceHead("Meus projetos | Orizon", "Projetos criados e organizados na plataforma privada Orizon."),
   component: ProjectsPage,
 });

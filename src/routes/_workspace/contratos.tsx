@@ -3,7 +3,7 @@ import { FileSignature } from "lucide-react";
 import { ModulePage } from "@/components/workspace/ModulePage";
 import { privateWorkspaceHead } from "@/lib/workspace/metadata";
 
-export const Route = createFileRoute("/_authenticated/_workspace/contratos")({
+export const Route = createFileRoute("/_workspace/contratos")({
   head: () => privateWorkspaceHead("Contratos | Orizon", "Organização privada de contratos vinculados a clientes Orizon."),
   component: ContractsPage,
 });

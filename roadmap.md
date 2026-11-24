@@ -2,10 +2,11 @@
 
 ## Transformação da plataforma privada
 
+- [x] Liberar o novo painel sem login e remover seus controles de sair, mantendo os antigos pedidos de orçamento protegidos.
 - [x] Fase 1: auditar o projeto e aprovar o planejamento da transformação.
 - [x] Fase 2: criar a identidade do ambiente de trabalho, sidebar recolhível e rotas independentes; manter o site atual em `/site`.
 - [x] Fase 3: criar dashboard privado com indicadores, projetos e atividades calculados dos registros locais.
-- [ ] Validar visualmente o painel autenticado e a transferência da ideia para "Criar projeto". **Bloqueado:** não há uma conta de acesso e a criação de uma conta temporária não foi autorizada.
+- [x] Validar visualmente o painel sem login e a transferência da ideia para "Criar projeto".
 - [ ] Fase 4: implementar criador e gerenciamento de projetos.
 - [ ] Fase 5: implementar ambiente de desenvolvimento e editor, sem simular IA.
 - [ ] Fase 6: implementar templates e biblioteca de arquivos.

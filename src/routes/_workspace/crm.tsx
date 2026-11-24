@@ -3,7 +3,7 @@ import { Columns3 } from "lucide-react";
 import { ModulePage } from "@/components/workspace/ModulePage";
 import { privateWorkspaceHead } from "@/lib/workspace/metadata";
 
-export const Route = createFileRoute("/_authenticated/_workspace/crm")({
+export const Route = createFileRoute("/_workspace/crm")({
   head: () => privateWorkspaceHead("CRM | Orizon", "Funil comercial privado para acompanhar oportunidades na Orizon."),
   component: CrmPage,
 });

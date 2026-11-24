@@ -12,11 +12,11 @@ function matchesFor(path: string) {
 // Match routes without running loaders or rendering: loaders may need a server or
 // network the test run lacks, and jsdom never loads the stylesheets React waits on.
 describe("App routing", () => {
-  it("places the private dashboard at / behind the authenticated layout", () => {
+  it("opens the local dashboard at / without the authenticated layout", () => {
     const matches = matchesFor("/");
 
-    expect(matches.some((match) => match.routeId === "/_authenticated")).toBe(true);
-    expect(matches.at(-1)?.routeId).toBe("/_authenticated/_workspace/");
+    expect(matches.at(-1)?.routeId).toBe("/_workspace/");
+    expect(matches.some((match) => match.routeId === "/_authenticated")).toBe(false);
   });
 
   it("keeps the institutional site public at /site", () => {
@@ -26,7 +26,7 @@ describe("App routing", () => {
     expect(matches.some((match) => match.routeId === "/_authenticated")).toBe(false);
   });
 
-  it("places the team quotes page behind the authenticated layout", () => {
+  it("keeps the legacy team quotes page behind the authenticated layout", () => {
     const matches = matchesFor("/equipe");
 
     expect(matches.some((match) => match.routeId === "/_authenticated")).toBe(true);
@@ -46,10 +46,10 @@ describe("App routing", () => {
     "/arquivos",
     "/historico",
     "/configuracoes",
-  ])("provides an authenticated page for %s", (path) => {
+  ])("provides direct local access to %s", (path) => {
     const matches = matchesFor(path);
 
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
-    expect(matches.some((match) => match.routeId === "/_authenticated")).toBe(true);
+    expect(matches.some((match) => match.routeId === "/_authenticated")).toBe(false);
   });
 });

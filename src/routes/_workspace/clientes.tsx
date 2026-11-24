@@ -3,7 +3,7 @@ import { Users } from "lucide-react";
 import { ModulePage } from "@/components/workspace/ModulePage";
 import { privateWorkspaceHead } from "@/lib/workspace/metadata";
 
-export const Route = createFileRoute("/_authenticated/_workspace/clientes")({
+export const Route = createFileRoute("/_workspace/clientes")({
   head: () => privateWorkspaceHead("Clientes | Orizon", "Gestão privada de clientes e seus projetos na Orizon."),
   component: ClientsPage,
 });

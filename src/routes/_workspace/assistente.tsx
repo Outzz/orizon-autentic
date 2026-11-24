@@ -3,7 +3,7 @@ import { Bot } from "lucide-react";
 import { ModulePage } from "@/components/workspace/ModulePage";
 import { privateWorkspaceHead } from "@/lib/workspace/metadata";
 
-export const Route = createFileRoute("/_authenticated/_workspace/assistente")({
+export const Route = createFileRoute("/_workspace/assistente")({
   head: () => privateWorkspaceHead("Assistente IA | Orizon", "Área preparada para uma futura integração de inteligência artificial local."),
   component: AssistantPage,
 });

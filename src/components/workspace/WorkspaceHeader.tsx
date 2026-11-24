@@ -1,24 +1,13 @@
-import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
-import { useQueryClient } from "@tanstack/react-query";
-import { ExternalLink, LogOut } from "lucide-react";
+import { Link, useRouterState } from "@tanstack/react-router";
+import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { supabase } from "@/integrations/supabase/client";
 import { workspaceNavigation } from "./WorkspaceSidebar";
 
 export function WorkspaceHeader() {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
   const currentItem = workspaceNavigation.find((item) => item.url === pathname);
-  const queryClient = useQueryClient();
-  const navigate = useNavigate();
-
-  async function handleSignOut() {
-    await queryClient.cancelQueries();
-    queryClient.clear();
-    await supabase.auth.signOut();
-    await navigate({ to: "/auth", replace: true });
-  }
 
   return (
     <header className="glass-header sticky top-0 z-20 flex h-16 shrink-0 items-center gap-2 border-b border-border px-4 sm:px-6">
@@ -31,9 +20,6 @@ export function WorkspaceHeader() {
         <Link to="/site"><ExternalLink />Ver site</Link>
       </Button>
       <ThemeToggle />
-      <Button variant="ghost" size="icon" aria-label="Sair da plataforma" title="Sair" onClick={handleSignOut}>
-        <LogOut />
-      </Button>
     </header>
   );
 }

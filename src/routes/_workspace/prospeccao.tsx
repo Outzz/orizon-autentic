@@ -3,7 +3,7 @@ import { Search } from "lucide-react";
 import { ModulePage } from "@/components/workspace/ModulePage";
 import { privateWorkspaceHead } from "@/lib/workspace/metadata";
 
-export const Route = createFileRoute("/_authenticated/_workspace/prospeccao")({
+export const Route = createFileRoute("/_workspace/prospeccao")({
   head: () => privateWorkspaceHead("Prospecção | Orizon", "Organização privada de oportunidades comerciais na Orizon."),
   component: ProspectingPage,
 });

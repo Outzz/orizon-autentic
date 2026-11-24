@@ -5,7 +5,8 @@ import { WorkspaceSidebar } from "@/components/workspace/WorkspaceSidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { loadWorkspacePreferences, saveWorkspacePreferences } from "@/lib/workspace/preferences";
 
-export const Route = createFileRoute("/_authenticated/_workspace")({
+export const Route = createFileRoute("/_workspace")({
+  ssr: false,
   component: WorkspaceLayout,
 });
 

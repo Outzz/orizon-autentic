@@ -3,7 +3,7 @@ import { Settings } from "lucide-react";
 import { ModulePage } from "@/components/workspace/ModulePage";
 import { privateWorkspaceHead } from "@/lib/workspace/metadata";
 
-export const Route = createFileRoute("/_authenticated/_workspace/configuracoes")({
+export const Route = createFileRoute("/_workspace/configuracoes")({
   head: () => privateWorkspaceHead("Configurações | Orizon", "Preferências e backups da plataforma privada Orizon."),
   component: SettingsPage,
 });

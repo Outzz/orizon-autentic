@@ -3,7 +3,7 @@ import { History } from "lucide-react";
 import { ModulePage } from "@/components/workspace/ModulePage";
 import { privateWorkspaceHead } from "@/lib/workspace/metadata";
 
-export const Route = createFileRoute("/_authenticated/_workspace/historico")({
+export const Route = createFileRoute("/_workspace/historico")({
   head: () => privateWorkspaceHead("Histórico | Orizon", "Histórico local de alterações da plataforma privada Orizon."),
   component: HistoryPage,
 });

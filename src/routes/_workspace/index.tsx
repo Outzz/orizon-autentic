@@ -4,7 +4,7 @@ import { Dashboard } from "@/components/workspace/Dashboard";
 import { privateWorkspaceHead } from "@/lib/workspace/metadata";
 import { workspaceDashboardQueryOptions } from "@/lib/workspace/queries";
 
-export const Route = createFileRoute("/_authenticated/_workspace/")({
+export const Route = createFileRoute("/_workspace/")({
   loader: ({ context }) => context.queryClient.ensureQueryData(workspaceDashboardQueryOptions),
   head: () => privateWorkspaceHead(
     "Dashboard | Orizon",

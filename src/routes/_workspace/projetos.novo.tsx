@@ -3,7 +3,7 @@ import { ArrowLeft, ListChecks, PencilRuler } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { privateWorkspaceHead } from "@/lib/workspace/metadata";
 
-export const Route = createFileRoute("/_authenticated/_workspace/projetos/novo")({
+export const Route = createFileRoute("/_workspace/projetos/novo")({
   validateSearch: (search: Record<string, unknown>) => ({
     ...(typeof search["descricao"] === "string"
       ? { descricao: search["descricao"].slice(0, 2000) }

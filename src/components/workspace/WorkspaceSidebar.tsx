@@ -1,7 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import {
   Bot,
-  ClipboardList,
   Columns3,
   FileSignature,
   FileText,
@@ -19,7 +18,6 @@ import { Logo, LogoMark } from "@/components/orizon/Logo";
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
@@ -85,18 +83,6 @@ export function WorkspaceSidebar() {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter className="border-t border-sidebar-border">
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton asChild tooltip="Pedidos de orçamento" isActive={currentPath === "/equipe"}>
-              <Link to="/equipe" onClick={() => setOpenMobile(false)}>
-                <ClipboardList />
-                <span>Pedidos de orçamento</span>
-              </Link>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
-      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   );

@@ -3,7 +3,7 @@ import { FolderOpen } from "lucide-react";
 import { ModulePage } from "@/components/workspace/ModulePage";
 import { privateWorkspaceHead } from "@/lib/workspace/metadata";
 
-export const Route = createFileRoute("/_authenticated/_workspace/arquivos")({
+export const Route = createFileRoute("/_workspace/arquivos")({
   head: () => privateWorkspaceHead("Arquivos | Orizon", "Biblioteca local de arquivos da plataforma privada Orizon."),
   component: FilesPage,
 });

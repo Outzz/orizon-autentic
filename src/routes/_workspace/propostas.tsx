@@ -3,7 +3,7 @@ import { FileText } from "lucide-react";
 import { ModulePage } from "@/components/workspace/ModulePage";
 import { privateWorkspaceHead } from "@/lib/workspace/metadata";
 
-export const Route = createFileRoute("/_authenticated/_workspace/propostas")({
+export const Route = createFileRoute("/_workspace/propostas")({
   head: () => privateWorkspaceHead("Propostas | Orizon", "Preparação privada de propostas comerciais na Orizon."),
   component: ProposalsPage,
 });
